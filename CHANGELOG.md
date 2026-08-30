@@ -1,5 +1,38 @@
 # Changelog
 
+## [0.8.0](https://github.com/shotakaha/Gutenberg/compare/v0.7.0...v0.8.0) (2026-08-30)
+
+
+### Features
+
+* emit standard break-* properties alongside legacy page-break-* ([b971e4e](https://github.com/shotakaha/Gutenberg/commit/b971e4e1de5bd2fcbfaf71362d2432abedbf9bc3))
+
+
+### Bug Fixes
+
+* not all variables are rewritable ([6e8c8d6](https://github.com/shotakaha/Gutenberg/commit/6e8c8d6deeedf64cec21213c138b705d41063ae0))
+* replace deprecated Sass lighten() with color.adjust() ([f8f4337](https://github.com/shotakaha/Gutenberg/commit/f8f4337770448d1e9e64a6969b96ec72e10b519f))
+
+
+### Build System
+
+* add commit linting and release automation ([c433e3f](https://github.com/shotakaha/Gutenberg/commit/c433e3fc5bb41e62126fc83de4685f2bc411021e))
+
+
+### CI
+
+* bump minor on feat while pre-1.0 ([86e5786](https://github.com/shotakaha/Gutenberg/commit/86e5786caccb574979053b6e2dd78f4500f72a78))
+* publish docs/ demo to GitHub Pages ([1dd6ff0](https://github.com/shotakaha/Gutenberg/commit/1dd6ff021528af04823d17e6abae0e46cce0c780))
+* require Node &gt;=20.19 (stylelint 17 minimum) ([baa946f](https://github.com/shotakaha/Gutenberg/commit/baa946f1fc22bb4bf3c82603417b906eb7146012))
+
+
+### Documentation
+
+* add ROADMAP.md ([307195c](https://github.com/shotakaha/Gutenberg/commit/307195cbf29f61cd30c161ad639f06931b1a5768))
+* Fix wrong stylesheet ([26cc392](https://github.com/shotakaha/Gutenberg/commit/26cc392ee148bf8d0971cac5edc375a9040b1d90))
+
+## Changelog
+
 This is a maintenance fork of [BafS/Gutenberg](https://github.com/BafS/Gutenberg).
 The fork point is upstream **v0.7.0** (commit `cec4afe`, 2023-02-22), the last
 release published by the original author. For the history up to and including
