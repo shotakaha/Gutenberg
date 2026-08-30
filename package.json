@@ -5,8 +5,8 @@
   "main": "scss/gutenberg.scss",
   "browser": "dist/gutenberg.min.css",
   "scripts": {
-    "build": "gulp",
-    "watch": "gulp watch",
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
     "lint": "stylelint \"scss/**/*.scss\"",
     "test": "npm run lint",
     "prepare": "husky"
@@ -39,21 +39,11 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.2",
     "@commitlint/config-conventional": "^21.2.2",
-    "gulp": "^4.0.0",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.4.1",
-    "node-sass-tilde-importer": "^1.0.2",
-    "sass": "^1.58.3",
+    "sass": "1.58.3",
     "stylelint": "^17.14.1",
     "stylelint-config-standard-scss": "^17.0.0"
-  },
-  "eyeglass": {
-    "name": "gutenberg",
-    "sassDir": "scss",
-    "needs": "*",
-    "exports": false
   },
   "engines": {
     "node": ">=20.19"

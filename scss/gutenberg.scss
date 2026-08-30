@@ -1,18 +1,15 @@
-/*!
- * Gutenberg
- *
- * MIT Fabien Sa
- * https://github.com/BafS/Gutenberg
- */
+// Emitted first so the banner heads the compiled file.
+@use 'banner';
 
-// Variables
-@import 'variables';
+// Variables are re-exported so consumers can override the !default values
+// (`@use 'gutenberg' with (...)`); the partials that need them @use them too.
+@forward 'variables';
 
-// Normalize
-@import '~normalize.css/normalize';
+// Normalize — resolved via --load-path=node_modules (see the build scripts).
+@use 'normalize.css/normalize';
 
-@import 'print-reset';
-@import 'pagination';
-@import 'page';
-@import 'reformat';
-@import 'utilities';
+@use 'print-reset';
+@use 'pagination';
+@use 'page';
+@use 'reformat';
+@use 'utilities';

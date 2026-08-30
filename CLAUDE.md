@@ -33,15 +33,21 @@ preview**. Those demo pages load `../dist/*.css`, so run `npm run build` first.
 
 ### Build pipeline
 
-`gulpfile.js` compiles every file under `scss/` with **Dart Sass** (`sass`
-package, invoked through `gulp-sass`). Each run emits both a plain and a
-`.min` variant into `dist/`, mirroring the `scss/` tree
-(`scss/gutenberg.scss` -> `dist/gutenberg.css` + `dist/gutenberg.min.css`;
-`scss/themes/modern.scss` -> `dist/themes/modern.*`).
+`scripts/build.mjs` shells out to the **Dart Sass CLI** (`node_modules/.bin/sass`)
+once for `--style=expanded` and once for `--style=compressed`, over the four
+entrypoints (`scss/gutenberg.scss` + the three themes). Output mirrors the
+source tree: `scss/gutenberg.scss` -> `dist/gutenberg.css` +
+`dist/gutenberg.min.css`; `scss/themes/modern.scss` -> `dist/themes/modern.*`.
+`--watch` mode (expanded only) is `npm run watch`.
 
-`node-sass-tilde-importer` resolves the one `~`-prefixed import
-(`@import '~normalize.css/normalize'` in `scss/gutenberg.scss`) to
-`node_modules/`.
+The one `node_modules` import (`@use 'normalize.css/normalize'` in
+`scss/gutenberg.scss`) is resolved with `--load-path=node_modules`, passed in
+`scripts/build.mjs` — not a `~` prefix.
+
+**`sass` is pinned to an exact version (1.58.x)**, not a caret range. Newer Dart
+Sass changes color serialization (e.g. `#262626` -> `rgb(15%, 15%, 15%)`), which
+would churn `dist/`. A `sass` bump is a deliberate change that must be diffed
+against `dist/` and noted.
 
 **`dist/` is committed and must stay in sync with `scss/`.** CI fails the build
 if `git diff -- dist` is non-empty after `npm run build`. Always rebuild and
@@ -49,11 +55,15 @@ commit `dist/` in the same change as any `scss/` edit.
 
 ### Sass source layout
 
-- `scss/gutenberg.scss` — the only real entry point; `@import`s normalize.css
-  then the partials in order: `_print-reset` -> `_pagination` -> `_page` ->
-  `_reformat` -> `_utilities`.
-- `scss/_variables.scss` — every value is `!default` so consumers can override
-  before importing. Colors default to black/grey ("black prints faster").
+- `scss/gutenberg.scss` — the only real entry point; `@use`s `_banner`,
+  `@forward`s `variables`, `@use`s normalize.css, then the partials in order:
+  `_print-reset` -> `_pagination` -> `_page` -> `_reformat` -> `_utilities`.
+- `scss/_banner.scss` — the `/*! ... */` header comment; `@use`d first so it
+  leads the compiled output.
+- `scss/_variables.scss` — every value is `!default`. Consumers override via
+  `@use 'gutenberg' with (...)` (the entry `@forward`s it). Partials that need
+  variables `@use '...variables' as *` themselves. Colors default to black/grey
+  ("black prints faster").
 - `scss/_print-reset.scss` — strips shadows/backgrounds, normalizes typography
   for paper.
 - `scss/_pagination.scss` — `break-*` control, `orphans`/`widows`.
@@ -63,9 +73,9 @@ commit `dist/` in the same change as any `scss/` edit.
   handled in `_utilities.scss`.
 - `scss/_utilities.scss` — public classes: `.no-print`, `.break-before` /
   `.break-after` / `.page-break*`, `.avoid-break-inside`, `.no-reformat`.
-- `scss/themes/{modern,oldstyle,book}.scss` — standalone stylesheets, each
-  `@import '../variables'` and nothing else from the core; compiled to
-  `dist/themes/`. `book` is marked experimental.
+- `scss/themes/{modern,oldstyle,book}.scss` — standalone stylesheets compiled
+  to `dist/themes/`, nothing from the core except `@use '../variables' as *`
+  (`book` uses no variables, so it has no `@use`). `book` is experimental.
 
 ### Conventions to preserve
 
@@ -114,9 +124,5 @@ Not published to npm. Compiled CSS is consumed from tagged releases via jsDelivr
 
 ## Known constraints
 
-- `npm audit` reports many vulnerabilities; all are inside the **gulp 4**
-  devDependency tree (build-time only, nothing reaches `dist/`). Clearing them
-  requires replacing the build tool — tracked in `ROADMAP.md`, do not chase
-  piecemeal.
-- `scss/` still uses `@import` (Dart Sass deprecated). Migrating to `@use` /
-  `@forward` is a single planned change in `ROADMAP.md`, not to be done ad hoc.
+- `sass` is intentionally held at 1.58.x — see the Build pipeline note. Do not
+  let a caret range or a Dependabot bump slip it forward without diffing `dist/`.

@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 body {
 	padding-bottom: $page-padding-bottom;
 	padding-left: $page-padding-left;
