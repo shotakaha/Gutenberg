@@ -68,7 +68,7 @@ commit `dist/` in the same change as any `scss/` edit.
   for paper.
 - `scss/_pagination.scss` — `break-*` control, `orphans`/`widows`.
 - `scss/_page.scss` — `@page` margins from the `$page-padding-*` variables.
-- `scss/_reformat.scss` — expands `a[href]` / `abbr[title]` into visible text
+- `scss/_reformat.scss` — expands `a[href]` and `abbr[title]` into visible text
   via `::after { content: attr(...) }`; suppressed by the `.no-reformat` class
   handled in `_utilities.scss`.
 - `scss/_utilities.scss` — public classes: `.no-print`, `.break-before` /
@@ -109,6 +109,11 @@ Version bumping while < 1.0.0 (`release-please-config.json`): `feat` -> minor,
 The GitHub Release body is generated separately from `CHANGELOG.md`; if it needs
 correcting, `gh release edit vX.Y.Z --notes-file <file>`.
 
+release-please turns `@word` in a commit subject into a GitHub @mention link
+(`@use` -> a broken `github.com/use` link). Wrap at-rule names in backticks in
+commit subjects (`` `@use` ``), or expect to fix the changelog and release body
+by hand afterward.
+
 ### Distribution
 
 Not published to npm. Compiled CSS is consumed from tagged releases via jsDelivr:
@@ -116,8 +121,8 @@ Not published to npm. Compiled CSS is consumed from tagged releases via jsDelivr
 
 ## CI workflows
 
-- `ci.yml` — lint + build + `dist/` sync check on Node 20/22/24, on push to
-  `master` and on PRs.
+- `ci.yml` — lint + build + `dist/` sync check on a single Node version, on push
+  to `master` and on PRs.
 - `pages.yml` — builds and deploys `docs/` (plus a fresh `dist/`) to GitHub
   Pages: <https://shotakaha.github.io/Gutenberg/>.
 - `release-please.yml` — see above.
