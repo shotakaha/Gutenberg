@@ -29,25 +29,25 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 - **v0.8.2** — build overhaul: replaced gulp with a small `scripts/build.mjs`
   calling the Dart Sass CLI; migrated every `@import` to `@use` / `@forward`;
   `normalize.css` resolved via `--load-path=node_modules`. `npm audit` went from
-  29 vulnerabilities to 0. `sass` pinned to 1.58.x (newer versions reserialise
-  colors).
-- **Housekeeping** (ships in the next release) — refreshed `.stylelintrc.js`;
-  `package.json` metadata tidy; `--no-install` on the pre-commit hook; removed
-  dead comments, the redundant `& {}` nesting, the `-webkit-/-moz-box-sizing`
-  prefixes, and the HTML5-obsolete `acronym` selectors; re-enabled
+  29 vulnerabilities to 0.
+- **v0.8.3** — housekeeping: refreshed `.stylelintrc.js`; `package.json`
+  metadata tidy; `--no-install` on the pre-commit hook; removed dead comments,
+  the redundant `& {}` nesting, the `-webkit-/-moz-box-sizing` prefixes, and the
+  HTML5-obsolete `acronym` selectors; re-enabled
   `block-no-redundant-nested-style-rules` and the (scoped) vendor-prefix rules;
   CI narrowed to a single Node version.
+- **v0.8.4** — unpinned `sass` (was exact 1.58.3); now a caret range Dependabot
+  can bump. The only `dist/` effect was one line in `dist/themes/modern.*`
+  (`color.adjust()` now serialises as `rgb(15%, 15%, 15%)` / `hsl(0,0%,15%)`,
+  same color).
 
 ## Next
 
-Nothing queued.
+Nothing queued. The maintenance base is complete: no pinned deps, zero `npm
+audit` findings, Dart Sass current, no deprecated APIs in the sources.
 
 ## Bigger follow-ups (when there's appetite)
 
-- [ ] **Unpin `sass`.** Move to a current release and absorb the color
-      serialization change (`#262626` -> `rgb(15%, 15%, 15%)`, same color) in
-      `dist/` in one deliberate commit; then let Dependabot keep it current.
-      Pinned to 1.58.x since the build overhaul — treat as tracked debt.
 - [ ] **Visual regression tests.** A headless print-to-PDF snapshot of the
       `docs/` pages would catch `dist/` regressions the sync check can't.
 - [ ] **`@page` margin-box utilities** (running headers / page numbers) — a real
