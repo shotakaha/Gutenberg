@@ -44,10 +44,10 @@ The one `node_modules` import (`@use 'normalize.css/normalize'` in
 `scss/gutenberg.scss`) is resolved with `--load-path=node_modules`, passed in
 `scripts/build.mjs` — not a `~` prefix.
 
-**`sass` is pinned to an exact version (1.58.x)**, not a caret range. Newer Dart
-Sass changes color serialization (e.g. `#262626` -> `rgb(15%, 15%, 15%)`), which
-would churn `dist/`. A `sass` bump is a deliberate change that must be diffed
-against `dist/` and noted.
+A `sass` upgrade can change how colors serialize (e.g. `color.adjust()` output
+moved from `#262626` to `rgb(15%, 15%, 15%)` — same color). That reaches `dist/`,
+so diff `dist/` after any `sass` bump and expect a possible one-line churn in
+`dist/themes/modern.*`.
 
 **`dist/` is committed and must stay in sync with `scss/`.** CI fails the build
 if `git diff -- dist` is non-empty after `npm run build`. Always rebuild and
@@ -129,5 +129,6 @@ Not published to npm. Compiled CSS is consumed from tagged releases via jsDelivr
 
 ## Known constraints
 
-- `sass` is intentionally held at 1.58.x — see the Build pipeline note. Do not
-  let a caret range or a Dependabot bump slip it forward without diffing `dist/`.
+- Nothing outstanding. `sass` tracks a caret range and Dependabot keeps it
+  current; a bump may produce the `dist/themes/modern.*` color-format churn
+  described in the Build pipeline section.
