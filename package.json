@@ -16,15 +16,18 @@
     "eyeglass-module"
   ],
   "author": "Fabien Sa",
+  "contributors": [
+    "qumasan (maintainer of this fork)"
+  ],
   "license": "MIT",
   "repository": {
-    "url": "git+https://github.com/BafS/Gutenberg.git",
+    "url": "git+https://github.com/shotakaha/Gutenberg.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/BafS/Gutenberg/issues"
+    "url": "https://github.com/shotakaha/Gutenberg/issues"
   },
-  "homepage": "https://github.com/BafS/Gutenberg#readme",
+  "homepage": "https://github.com/shotakaha/Gutenberg#readme",
   "dependencies": {
     "normalize.css": "^8.0.1"
   },

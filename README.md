@@ -4,11 +4,16 @@
 
 > Modern framework to print web pages correctly
 
-[![npm (scoped)](https://img.shields.io/npm/v/gutenberg-css.svg?style=flat-square)](https://www.npmjs.com/package/gutenberg-css)
-[![Build Status](https://travis-ci.org/BafS/Gutenberg.svg?branch=master)](https://travis-ci.org/BafS/Gutenberg)
-[![Maintainability](https://api.codeclimate.com/v1/badges/cd58cc2133d461631f7f/maintainability)](https://codeclimate.com/github/BafS/Gutenberg/maintainability)
 [![license](https://img.shields.io/npm/l/gutenberg-css.svg?style=flat-square)]()
-[![download](https://img.shields.io/npm/dm/gutenberg-css.svg?style=flat-square)]()
+
+> **Note — this is a maintenance fork.**
+> The upstream project [BafS/Gutenberg](https://github.com/BafS/Gutenberg) has had no
+> activity since February 2023. This fork ([qumasan/Gutenberg](https://github.com/shotakaha/Gutenberg))
+> continues maintenance: dependency updates, tooling modernization, and small
+> improvements. Feature changes are also submitted upstream as pull requests when
+> possible, but there is no guarantee they will be merged there.
+>
+> See [CHANGELOG.md](CHANGELOG.md) for what has changed since the fork point (v0.7.0).
 
 # How to use
 
