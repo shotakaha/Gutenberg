@@ -16,13 +16,13 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
   (<https://shotakaha.github.io/Gutenberg/>); demos load the freshly built
   `dist/` instead of the upstream npm package. Compiled CSS is also consumable
   from tagged releases through jsDelivr.
+- `feat`: emit standard `break-*` alongside the legacy `page-break-*`
+  properties (kept as a fallback). `property-no-deprecated` re-enabled with an
+  `ignoreProperties` exception for the deliberate `page-break-*` / `word-wrap`
+  fallbacks.
 
 ## Next — small, low risk
 
-- [ ] **`page-break-*` -> add standard `break-*`.** Keep the legacy properties,
-      emit the standardised ones alongside them
-      (`_pagination.scss`, `_utilities.scss`, `themes/book.scss`). Then re-enable
-      the `property-no-deprecated` rule in `.stylelintrc.js`.
 - [ ] **`:before` / `:after` -> `::before` / `::after`.** Mechanical, no output
       change. Fork-only — do not send upstream (pure style churn). Re-enable
       `selector-pseudo-element-colon-notation` afterwards.

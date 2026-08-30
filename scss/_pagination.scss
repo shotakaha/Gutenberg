@@ -9,7 +9,8 @@ ul,
 ol,
 a,
 tr {
-	page-break-inside: avoid;
+	page-break-inside: avoid; // legacy alias, kept as a fallback
+	break-inside: avoid;
 }
 
 // Orphans and widows
@@ -29,22 +30,28 @@ h3,
 h4,
 h5,
 h6 {
-	page-break-after: avoid;
+	page-break-after: avoid; // legacy aliases, kept as a fallback
 	page-break-inside: avoid;
+	break-after: avoid;
+	break-inside: avoid;
 }
 
 // Avoid breaking before a paragraph if header before
 h1 + p,
 h2 + p,
 h3 + p {
-	page-break-before: avoid;
+	page-break-before: avoid; // legacy alias, kept as a fallback
+	break-before: avoid;
 }
 
 // Avoid to break inside an image
 img {
-	page-break-after: auto;
+	page-break-after: auto; // legacy aliases, kept as a fallback
 	page-break-before: auto;
 	page-break-inside: avoid;
+	break-after: auto;
+	break-before: auto;
+	break-inside: avoid;
 }
 
 pre {

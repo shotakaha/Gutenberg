@@ -133,7 +133,8 @@ td {
 td,
 th {
 	padding: $base-font-size * 0.5 $base-font-size;
-	page-break-inside: avoid
+	page-break-inside: avoid; // legacy alias, kept as a fallback
+	break-inside: avoid;
 }
 
 //

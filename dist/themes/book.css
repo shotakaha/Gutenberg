@@ -1,6 +1,7 @@
 h1,
 article {
   page-break-before: always;
+  break-before: page;
 }
 
 body {

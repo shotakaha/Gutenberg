@@ -1,16 +1,19 @@
 .page-break,
 .break-before,
 .page-break-before {
-	page-break-before: always;
+	page-break-before: always; // legacy alias, kept as a fallback
+	break-before: page;
 }
 
 .break-after,
 .page-break-after {
-	page-break-after: always;
+	page-break-after: always; // legacy alias, kept as a fallback
+	break-after: page;
 }
 
 .avoid-break-inside {
-	page-break-inside: avoid;
+	page-break-inside: avoid; // legacy alias, kept as a fallback
+	break-inside: avoid;
 }
 
 .no-print {

@@ -2,7 +2,8 @@
 
 h1,
 article {
-	page-break-before: always;
+	page-break-before: always; // legacy alias, kept as a fallback
+	break-before: page;
 }
 
 body {

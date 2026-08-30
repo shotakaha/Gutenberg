@@ -13,8 +13,15 @@
 module.exports = {
   extends: 'stylelint-config-standard-scss',
   rules: {
+    // `page-break-*` and `word-wrap` are emitted on purpose, each paired with
+    // its standard successor (`break-*` / `overflow-wrap`) as a fallback for
+    // older print engines. Any *other* deprecated property is still an error.
+    'property-no-deprecated': [
+      true,
+      { ignoreProperties: [/^page-break-/, 'word-wrap'] },
+    ],
+
     // Legacy print-engine compatibility, kept on purpose.
-    'property-no-deprecated': null, // page-break-*, word-wrap
     'property-no-vendor-prefix': null, // -webkit-/-moz-box-sizing
     'selector-no-vendor-prefix': null, // ::-webkit-input-placeholder etc.
 
