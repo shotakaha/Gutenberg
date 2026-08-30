@@ -17,9 +17,11 @@ module.exports = {
       { ignoreProperties: [/^page-break-/, 'word-wrap'] },
     ],
 
-    // Legacy print-engine compatibility, kept on purpose.
-    'property-no-vendor-prefix': null, // -webkit-/-moz-box-sizing
-    'selector-no-vendor-prefix': null, // ::-webkit-input-placeholder etc.
+    // -webkit-/-moz-osx-font-smoothing have no unprefixed equivalent; the
+    // ::-webkit-/-moz-/-ms- placeholder selectors target old browsers on
+    // purpose. Everything else prefixed is an error.
+    'property-no-vendor-prefix': [true, { ignoreProperties: ['font-smoothing', 'osx-font-smoothing'] }],
+    'selector-no-vendor-prefix': [true, { ignoreSelectors: ['/-(webkit|moz|ms)-.*placeholder/'] }],
 
     // Pre-existing style; churn-only if "fixed".
     'value-keyword-case': null, // font-family names kept capitalised
