@@ -22,14 +22,15 @@ in this fork since that point.
   pass unchanged (see `.stylelintrc.js` for the disabled rules and why); it acts
   as a regression net, not a mass rewrite.
 - `npm test` now runs `npm run lint` (was `sass-lint`).
-- Raise `engines.node` from `>=8.0` to `>=18`.
+- Raise `engines.node` from `>=8.0` to `>=20.19` (minimum required by
+  stylelint 17).
 - `package-lock.json` migrated from lockfile v1 to v3 (npm 7+ format) as a side
   effect of installing stylelint.
 
 ### Added
 
 - This `CHANGELOG.md`.
-- GitHub Actions CI (`.github/workflows/ci.yml`): lint + build on Node 18/20/22,
+- GitHub Actions CI (`.github/workflows/ci.yml`): lint + build on Node 20/22/24,
   and a check that `dist/` is in sync with `scss/`.
 - `npm run lint` script.
 
