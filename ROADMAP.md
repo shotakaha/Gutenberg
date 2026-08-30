@@ -26,17 +26,23 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 - **v0.8.1** — `fix`: emit `overflow-wrap` alongside legacy `word-wrap`;
   `refactor`: single-colon -> double-colon pseudo-element notation,
   `selector-pseudo-element-colon-notation` re-enabled.
+- **Build overhaul** (`build:`, ships in the next release) — replaced gulp with
+  a small `scripts/build.mjs` calling the Dart Sass CLI; migrated every
+  `@import` to `@use` / `@forward`; `normalize.css` resolved via
+  `--load-path=node_modules`. `npm audit` went from 29 vulnerabilities to 0.
+  `sass` pinned to 1.58.x (newer versions reserialise colors).
 
-## Next — larger changes
+## Next
 
-- [ ] **`@import` -> `@use` / `@forward`.** Dart Sass has deprecated `@import`.
-      Touches every `scss/` file plus the `~normalize.css` tilde import and the
-      gulp importer config; do it as one focused change.
-- [ ] **Replace gulp with the `sass` CLI.** The whole `npm audit` backlog lives
-      in the gulp 4 devDependency tree (build-time only). Drop `gulpfile.js` for
-      a couple of `sass` CLI calls + small npm scripts; rewrite the `~` import as
-      a relative path (only used for `normalize.css`). Keep `dist/` output
-      identical. Pairs naturally with the `@use` migration.
+Nothing queued. Candidate follow-ups when there's appetite:
+
+- [ ] **Unpin `sass`.** Move to a current release and absorb the color
+      serialization change (`#262626` -> `rgb(15%, 15%, 15%)`, same color) in
+      `dist/` in one deliberate commit; then let Dependabot keep it current.
+- [ ] **Visual regression tests.** A headless print-to-PDF snapshot of the
+      `docs/` pages would catch `dist/` regressions the sync check can't.
+- [ ] **`@page` margin-box utilities** (running headers / page numbers) — a real
+      feature, worth an upstream PR.
 
 ## Upstream contributions
 
@@ -46,8 +52,8 @@ self-contained PRs (no expectation of a response):
 - `lighten()` -> `color.adjust()` (in this fork since v0.8.0).
 - `page-break-*` -> `break-*` fallbacks (in this fork since v0.8.0).
 
-Style-only changes (`::before`, empty-line rules, keyword casing) stay in the
-fork and are not sent upstream.
+Style-only changes (`::before`, empty-line rules, keyword casing) and the
+build-tooling overhaul stay in the fork and are not sent upstream.
 
 ## Explicitly out of scope
 
