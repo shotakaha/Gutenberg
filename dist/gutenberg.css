@@ -320,16 +320,16 @@ template {
 }
 
 *,
-*:before,
-*:after,
-p:first-letter,
-div:first-letter,
-blockquote:first-letter,
-li:first-letter,
-p:first-line,
-div:first-line,
-blockquote:first-line,
-li:first-line {
+*::before,
+*::after,
+p::first-letter,
+div::first-letter,
+blockquote::first-letter,
+li::first-letter,
+p::first-line,
+div::first-line,
+blockquote::first-line,
+li::first-line {
   background: transparent !important;
   box-shadow: none !important;
   text-shadow: none !important;
@@ -592,16 +592,16 @@ body {
   padding-top: 2.54cm;
 }
 
-a[href^=http]:after, a[href^=ftp]:after {
+a[href^=http]::after, a[href^=ftp]::after {
   content: " (" attr(href) ")";
   font-size: 80%;
 }
-a[href$=".jpg"]:after, a[href$=".jpeg"]:after, a[href$=".gif"]:after, a[href$=".png"]:after {
+a[href$=".jpg"]::after, a[href$=".jpeg"]::after, a[href$=".gif"]::after, a[href$=".png"]::after {
   display: none;
 }
 
-abbr[title]:after,
-acronym[title]:after {
+abbr[title]::after,
+acronym[title]::after {
   content: " (" attr(title) ")";
 }
 
@@ -627,17 +627,17 @@ acronym[title]:after {
   display: none;
 }
 
-a.no-reformat:after {
+a.no-reformat::after {
   content: "";
 }
 
-abbr[title].no-reformat:after,
-acronym[title].no-reformat:after {
+abbr[title].no-reformat::after,
+acronym[title].no-reformat::after {
   content: "";
 }
 
-.no-reformat abbr:after,
-.no-reformat acronym:after,
-.no-reformat a:after {
+.no-reformat abbr::after,
+.no-reformat acronym::after,
+.no-reformat a::after {
   content: "";
 }

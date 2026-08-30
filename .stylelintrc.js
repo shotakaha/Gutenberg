@@ -27,7 +27,6 @@ module.exports = {
 
     // Pre-existing style; churn-only if "fixed".
     'value-keyword-case': null, // font-family names kept capitalised
-    'selector-pseudo-element-colon-notation': null, // :before / :after
     'declaration-block-no-redundant-longhand-properties': null,
     'block-no-redundant-nested-style-rules': null,
     'font-family-name-quotes': null,

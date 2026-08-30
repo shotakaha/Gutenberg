@@ -3,7 +3,7 @@
 a {
 	&[href^='http'],
 	&[href^='ftp'] {
-		&:after {
+		&::after {
 			content: ' (' attr(href) ')';
 			font-size: 80%;
 		}
@@ -13,7 +13,7 @@ a {
 	&[href$='.jpeg'],
 	&[href$='.gif'],
 	&[href$='.png'] {
-		&:after {
+		&::after {
 			display: none;
 		}
 	}
@@ -22,7 +22,7 @@ a {
 // Show abbreviation or acronym title
 abbr[title],
 acronym[title] {
-	&:after {
+	&::after {
 		content: ' (' attr(title) ')';
 	}
 }

@@ -35,6 +35,6 @@ blockquote {
   margin-left: 1.5rem;
   padding-left: 1rem;
 }
-blockquote p:first-letter {
+blockquote p::first-letter {
   font-weight: bold;
 }
