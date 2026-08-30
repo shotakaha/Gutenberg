@@ -28,9 +28,5 @@ module.exports = {
     'scss/dollar-variable-empty-line-before': null,
     'scss/double-slash-comment-empty-line-before': null,
     'at-rule-empty-line-before': null,
-
-    // Dart Sass migration leftover: lighten() -> color.adjust().
-    // Worth fixing, but as its own change.
-    'scss/no-global-function-names': null,
   },
 };
