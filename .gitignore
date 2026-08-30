@@ -1,5 +1,19 @@
-node_modules
-__*
-.DS_Store
+# Dependencies
+node_modules/
+
+# GitHub Pages build (assembled by .github/workflows/pages.yml)
+/_site/
+
+# Logs and caches
 *.log
-*.lock
+.stylelintcache
+
+# npm pack output
+*.tgz
+
+# OS noise
+.DS_Store
+
+# NOTE: dist/ is committed on purpose
+# (CI checks it against scss/; jsDelivr serves it from tags).
+# Do not add it here.
