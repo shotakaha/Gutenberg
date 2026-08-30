@@ -56,5 +56,6 @@ img {
 
 pre {
 	white-space: pre-wrap !important;
-	word-wrap: break-word;
+	word-wrap: break-word; // legacy alias, kept as a fallback
+	overflow-wrap: break-word;
 }
