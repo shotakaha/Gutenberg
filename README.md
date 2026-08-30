@@ -13,7 +13,8 @@
 > improvements. Feature changes are also submitted upstream as pull requests when
 > possible, but there is no guarantee they will be merged there.
 >
-> See [CHANGELOG.md](CHANGELOG.md) for what has changed since the fork point (v0.7.0).
+> See [CHANGELOG.md](CHANGELOG.md) for what has changed since the fork point
+> (v0.7.0), and [ROADMAP.md](ROADMAP.md) for what is planned.
 
 # How to use
 
