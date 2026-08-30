@@ -1,52 +1,22 @@
 # Roadmap
 
-Work planned for this maintenance fork of [BafS/Gutenberg](https://github.com/BafS/Gutenberg).
-This is a single-maintainer list, not an issue tracker — items move to a branch (`<type>/<topic>`) when started and are dropped from here once merged.
-Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
+Planned work for this maintenance fork of [BafS/Gutenberg](https://github.com/BafS/Gutenberg)
+(upstream inactive since 2023-02). Single-maintainer list, not an issue tracker:
+an item moves to a `<type>/<topic>` branch when started and is dropped from here
+once merged. Shipped changes are in [CHANGELOG.md](CHANGELOG.md).
 
-## Done
+## Status
 
-- Mark the repo as a maintenance fork (README / `package.json` / `CHANGELOG`).
-- Modern tooling: GitHub Actions CI (lint + build + `dist/` sync check),
-  `stylelint` in place of the abandoned `sass-lint`.
-- Commit + release automation: commitlint + husky + lint-staged, and
-  release-please for versioning / changelog / tags.
-- `docs/` published on GitHub Pages via Actions
-  (<https://shotakaha.github.io/Gutenberg/>); demos load the freshly built
-  `dist/` instead of the upstream npm package. Compiled CSS is also consumable
-  from tagged releases through jsDelivr.
-- `CLAUDE.md` for future contributors / agents.
-- Dependabot: weekly npm + Actions version updates, plus security alerts /
-  automated security fixes.
-- **v0.8.0** — `fix`: `lighten()` -> `color.adjust()` (Dart Sass deprecation);
-  `feat`: emit standard `break-*` alongside the legacy `page-break-*` properties
-  (kept as a fallback), `property-no-deprecated` re-enabled with an
-  `ignoreProperties` exception for the deliberate `page-break-*` / `word-wrap`
-  fallbacks.
-- **v0.8.1** — `fix`: emit `overflow-wrap` alongside legacy `word-wrap`;
-  `refactor`: single-colon -> double-colon pseudo-element notation,
-  `selector-pseudo-element-colon-notation` re-enabled.
-- **v0.8.2** — build overhaul: replaced gulp with a small `scripts/build.mjs`
-  calling the Dart Sass CLI; migrated every `@import` to `@use` / `@forward`;
-  `normalize.css` resolved via `--load-path=node_modules`. `npm audit` went from
-  29 vulnerabilities to 0.
-- **v0.8.3** — housekeeping: refreshed `.stylelintrc.js`; `package.json`
-  metadata tidy; `--no-install` on the pre-commit hook; removed dead comments,
-  the redundant `& {}` nesting, the `-webkit-/-moz-box-sizing` prefixes, and the
-  HTML5-obsolete `acronym` selectors; re-enabled
-  `block-no-redundant-nested-style-rules` and the (scoped) vendor-prefix rules;
-  CI narrowed to a single Node version.
-- **v0.8.4** — unpinned `sass` (was exact 1.58.3); now a caret range Dependabot
-  can bump. The only `dist/` effect was one line in `dist/themes/modern.*`
-  (`color.adjust()` now serialises as `rgb(15%, 15%, 15%)` / `hsl(0,0%,15%)`,
-  same color).
+The maintenance base is in place: GitHub Actions CI (lint + build + `dist/` sync
+check), stylelint, commitlint + husky, release-please, a GitHub Pages demo,
+jsDelivr distribution, and Dependabot. No pinned dependencies, zero `npm audit`
+findings, Dart Sass current, no deprecated APIs in the sources.
 
 ## Next
 
-Nothing queued. The maintenance base is complete: no pinned deps, zero `npm
-audit` findings, Dart Sass current, no deprecated APIs in the sources.
+Nothing queued.
 
-## Bigger follow-ups (when there's appetite)
+## Candidates (when there's appetite)
 
 - [ ] **Visual regression tests.** A headless print-to-PDF snapshot of the
       `docs/` pages would catch `dist/` regressions the sync check can't.
@@ -58,15 +28,14 @@ audit` findings, Dart Sass current, no deprecated APIs in the sources.
 
 ## Upstream contributions
 
-Upstream has had no activity since 2023-02. Candidates to offer as small,
-self-contained PRs (no expectation of a response):
+Upstream has had no activity since 2023-02. Small, self-contained PRs already
+offered / worth offering (no expectation of a response):
 
 - `lighten()` -> `color.adjust()` (in this fork since v0.8.0).
 - `page-break-*` -> `break-*` fallbacks (in this fork since v0.8.0).
 
 Style-only changes (`::before`, empty-line rules, keyword casing), the
-build-tooling overhaul, and the housekeeping cleanup stay in the fork and are
-not sent upstream.
+build-tooling overhaul, and the housekeeping cleanup stay in the fork.
 
 ## Explicitly out of scope
 
