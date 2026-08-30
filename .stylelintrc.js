@@ -1,14 +1,10 @@
-'use strict';
-
 /**
- * Stylelint replaces the abandoned sass-lint. It is wired in as a regression
- * net for future changes, so the config is deliberately tuned to let the
- * current v0.7.0 sources pass untouched.
+ * Stylelint (with stylelint-config-standard-scss) replaced the abandoned
+ * sass-lint. It runs in CI and as a pre-commit hook, as a regression net.
  *
- * The rules disabled below flag intentional or cosmetic choices in the existing
- * SCSS, not defects. Modernizing any of them (e.g. `page-break-*` -> `break-*`)
- * is a content change that belongs in its own commit / upstream PR, at which
- * point the corresponding rule here should be re-enabled.
+ * The rules turned off below correspond to deliberate choices in the sources,
+ * not defects. Each notes why. When a source is modernised so a rule no longer
+ * fires, re-enable the rule in the same commit.
  */
 module.exports = {
   extends: 'stylelint-config-standard-scss',
