@@ -19,17 +19,20 @@
 # How to use
 
 Load the base stylesheet for the printer only; add a theme from `dist/themes/`
-if you want one. Reference the compiled CSS from a tagged release via
-[jsDelivr](https://www.jsdelivr.com/), pinning a version:
+if you want one. The compiled CSS lives in `dist/` — copy it into your project,
+or, since the repo is public, pull a tagged version through a GitHub-backed CDN
+such as [jsDelivr](https://www.jsdelivr.com/):
 
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.8.4/dist/gutenberg.min.css" media="print">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.8.4/dist/themes/oldstyle.min.css" media="print"> <!-- optional -->
 ```
 
-Use the latest tag from the [releases](https://github.com/shotakaha/Gutenberg/releases)
-page; `@latest` tracks the newest tag but is not recommended for production. Or
-vendor `dist/*.css` into your own project.
+Bump the tag to whatever the [releases](https://github.com/shotakaha/Gutenberg/releases)
+page shows; pin it rather than tracking `@latest`.
+
+This fork is not published to any package registry. The original project is on
+npm as `gutenberg-css`, last published by the upstream author at v0.7.0.
 
 ![comparison](https://i.imgur.com/tL5cHhn.png)
 
@@ -37,15 +40,8 @@ vendor `dist/*.css` into your own project.
 
 ## Demo
 
-A live demo of this fork is published from `docs/` at
-<https://shotakaha.github.io/Gutenberg/> — open it and use your browser's print
-preview to see the result.
-
-## Distribution
-
-This fork is **not published to npm** — jsDelivr (above) serves the compiled CSS
-straight from the Git tags. The original project remains on npm as `gutenberg-css`,
-last published by the upstream author at v0.7.0.
+The `docs/` pages are served at <https://shotakaha.github.io/Gutenberg/> (GitHub
+Pages) — open one and use your browser's print preview to see the result.
 
 
 # What does the framework do?

@@ -8,9 +8,11 @@ once merged. Shipped changes are in [CHANGELOG.md](CHANGELOG.md).
 ## Status
 
 The maintenance base is in place: GitHub Actions CI (lint + build + `dist/` sync
-check), stylelint, commitlint + husky, release-please, a GitHub Pages demo,
-jsDelivr distribution, and Dependabot. No pinned dependencies, zero `npm audit`
-findings, Dart Sass current, no deprecated APIs in the sources.
+check), stylelint, commitlint + husky, release-please, a GitHub Pages demo, and
+Dependabot. No pinned dependencies, zero `npm audit` findings, Dart Sass
+current, no deprecated APIs in the sources. Not published to any registry;
+`dist/` is committed and the repo is public, so a CDN like jsDelivr can serve
+any tag.
 
 ## Next
 

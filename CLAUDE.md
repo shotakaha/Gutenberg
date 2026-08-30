@@ -116,8 +116,9 @@ by hand afterward.
 
 ### Distribution
 
-Not published to npm. Compiled CSS is consumed from tagged releases via jsDelivr:
-`https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@vX.Y.Z/dist/gutenberg.min.css`.
+Not published to any registry.
+`dist/` is committed, so consumers either vendor it or — because the repo is public — pull a tag through a GitHub-backed CDN such as `https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@vX.Y.Z/dist/gutenberg.min.css`.
+Nothing here operates that CDN; tagging a release is all that is needed.
 
 ## CI workflows
 
