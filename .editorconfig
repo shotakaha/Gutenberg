@@ -13,3 +13,19 @@ indent_style = tab
 
 [*.md]
 trim_trailing_whitespace = false
+
+# YAML forbids tabs; be explicit.
+[*.yml]
+indent_style = space
+
+# Binary / vendored / generated — leave exactly as-is.
+[*.png]
+trim_trailing_whitespace = false
+insert_final_newline = false
+
+[LICENSE]
+insert_final_newline = false
+
+[.husky/*]
+trim_trailing_whitespace = false
+insert_final_newline = false
