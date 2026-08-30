@@ -16,6 +16,8 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
   `dist/` instead of the upstream npm package. Compiled CSS is also consumable
   from tagged releases through jsDelivr.
 - `CLAUDE.md` for future contributors / agents.
+- Dependabot: weekly npm + Actions version updates, plus security alerts /
+  automated security fixes.
 - **v0.8.0** — `fix`: `lighten()` -> `color.adjust()` (Dart Sass deprecation);
   `feat`: emit standard `break-*` alongside the legacy `page-break-*` properties
   (kept as a fallback), `property-no-deprecated` re-enabled with an
@@ -35,8 +37,6 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
       a couple of `sass` CLI calls + small npm scripts; rewrite the `~` import as
       a relative path (only used for `normalize.css`). Keep `dist/` output
       identical. Pairs naturally with the `@use` migration.
-- [ ] **Add `.github/dependabot.yml`** once the toolchain is settled, so
-      dependency bumps arrive as PRs.
 
 ## Upstream contributions
 
