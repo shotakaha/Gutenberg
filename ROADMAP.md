@@ -7,8 +7,8 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 ## Done
 
 - Mark the repo as a maintenance fork (README / `package.json` / `CHANGELOG`).
-- Modern tooling: GitHub Actions CI (lint + build + `dist/` sync check,
-  Node 20/22/24), `stylelint` in place of the abandoned `sass-lint`.
+- Modern tooling: GitHub Actions CI (lint + build + `dist/` sync check),
+  `stylelint` in place of the abandoned `sass-lint`.
 - Commit + release automation: commitlint + husky + lint-staged, and
   release-please for versioning / changelog / tags.
 - `docs/` published on GitHub Pages via Actions
@@ -26,32 +26,23 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 - **v0.8.1** — `fix`: emit `overflow-wrap` alongside legacy `word-wrap`;
   `refactor`: single-colon -> double-colon pseudo-element notation,
   `selector-pseudo-element-colon-notation` re-enabled.
-- **Build overhaul** (`build:`, ships in the next release) — replaced gulp with
-  a small `scripts/build.mjs` calling the Dart Sass CLI; migrated every
-  `@import` to `@use` / `@forward`; `normalize.css` resolved via
-  `--load-path=node_modules`. `npm audit` went from 29 vulnerabilities to 0.
-  `sass` pinned to 1.58.x (newer versions reserialise colors).
+- **v0.8.2** — build overhaul: replaced gulp with a small `scripts/build.mjs`
+  calling the Dart Sass CLI; migrated every `@import` to `@use` / `@forward`;
+  `normalize.css` resolved via `--load-path=node_modules`. `npm audit` went from
+  29 vulnerabilities to 0. `sass` pinned to 1.58.x (newer versions reserialise
+  colors).
+- **Housekeeping** (ships in the next release) — refreshed `.stylelintrc.js`;
+  `package.json` metadata tidy; `--no-install` on the pre-commit hook; removed
+  dead comments, the redundant `& {}` nesting, the `-webkit-/-moz-box-sizing`
+  prefixes, and the HTML5-obsolete `acronym` selectors; re-enabled
+  `block-no-redundant-nested-style-rules` and the (scoped) vendor-prefix rules;
+  CI narrowed to a single Node version.
 
 ## Next
 
-### Housekeeping (small, low risk — one commit each)
+Nothing queued.
 
-- [ ] `.stylelintrc.js`: rewrite the stale header comment (talks about work
-      already done) and drop the redundant `'use strict'`.
-- [ ] `package.json`: drop the `eyeglass-module` keyword (the eyeglass block is
-      already gone); `browser` -> `style` for the CSS entry.
-- [ ] `.husky/pre-commit`: add `--no-install` to match `commit-msg`.
-- [ ] Delete dead comments in `scss/` (e.g. `// max-width: 21cm;`).
-- [ ] `themes/oldstyle.scss`: remove the redundant `& { ... }` nesting, then
-      re-enable `block-no-redundant-nested-style-rules`.
-- [ ] Drop the `-webkit-/-moz-box-sizing` prefixes (dead since ~2015); check
-      whether `property-no-vendor-prefix` can then be re-enabled.
-- [ ] Remove `acronym` selectors (HTML5-obsolete element) from `_reformat.scss`
-      / `_utilities.scss` / `_print-reset.scss`.
-- [ ] CI: narrow the matrix to a single Node version (the build only shells out
-      to `sass`), or document why 20/22/24 is kept.
-
-### Bigger follow-ups (when there's appetite)
+## Bigger follow-ups (when there's appetite)
 
 - [ ] **Unpin `sass`.** Move to a current release and absorb the color
       serialization change (`#262626` -> `rgb(15%, 15%, 15%)`, same color) in
@@ -61,6 +52,9 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
       `docs/` pages would catch `dist/` regressions the sync check can't.
 - [ ] **`@page` margin-box utilities** (running headers / page numbers) — a real
       feature, worth an upstream PR.
+- [ ] **Namespace the `@use` imports** (`@use '../variables' as v;` +
+      `v.$name`), if churn ever feels worth it. `as *` is a deliberate choice
+      for now.
 
 ## Upstream contributions
 
@@ -70,8 +64,9 @@ self-contained PRs (no expectation of a response):
 - `lighten()` -> `color.adjust()` (in this fork since v0.8.0).
 - `page-break-*` -> `break-*` fallbacks (in this fork since v0.8.0).
 
-Style-only changes (`::before`, empty-line rules, keyword casing) and the
-build-tooling overhaul stay in the fork and are not sent upstream.
+Style-only changes (`::before`, empty-line rules, keyword casing), the
+build-tooling overhaul, and the housekeeping cleanup stay in the fork and are
+not sent upstream.
 
 ## Explicitly out of scope
 
