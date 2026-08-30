@@ -18,15 +18,18 @@
 
 # How to use
 
-Simply include the right stylesheet(s) in your html and load it only for a printer.
-Gutenberg.css is the base stylesheet but there are themes available in the `themes` folder.
-
-Example with Gutenberg and "old style" theme :
+Load the base stylesheet for the printer only; add a theme from `dist/themes/`
+if you want one. Reference the compiled CSS from a tagged release via
+[jsDelivr](https://www.jsdelivr.com/), pinning a version:
 
 ```html
-<link rel="stylesheet" href="dist/gutenberg.css" media="print">
-<link rel="stylesheet" href="dist/themes/oldstyle.css" media="print"> <!-- optional -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.8.4/dist/gutenberg.min.css" media="print">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.8.4/dist/themes/oldstyle.min.css" media="print"> <!-- optional -->
 ```
+
+Use the latest tag from the [releases](https://github.com/shotakaha/Gutenberg/releases)
+page; `@latest` tracks the newest tag but is not recommended for production. Or
+vendor `dist/*.css` into your own project.
 
 ![comparison](https://i.imgur.com/tL5cHhn.png)
 
@@ -38,31 +41,14 @@ A live demo of this fork is published from `docs/` at
 <https://shotakaha.github.io/Gutenberg/> — open it and use your browser's print
 preview to see the result.
 
-## CDN (this fork)
+## Distribution
 
-This fork is not published to npm. Reference the compiled CSS straight from a
-tagged release via [jsDelivr](https://www.jsdelivr.com/), pinning a version:
-
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.7.0/dist/gutenberg.min.css" media="print">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.7.0/dist/themes/oldstyle.min.css" media="print"> <!-- optional -->
-```
-
-Replace `v0.7.0` with the tag you want (see
-[releases](https://github.com/shotakaha/Gutenberg/releases)); `@latest` tracks
-the newest tag but is not recommended for production.
-
-## npm (upstream)
-
-The original project is on npm as `gutenberg-css` (last published by the
-upstream author at v0.7.0):
-
-```sh
-npm install gutenberg-css
-```
+This fork is **not published to npm** — jsDelivr (above) serves the compiled CSS
+straight from the Git tags. The original project remains on npm as `gutenberg-css`,
+last published by the upstream author at v0.7.0.
 
 
-# What does the framework do ?
+# What does the framework do?
 
 ### Hide elements
 
@@ -70,7 +56,7 @@ To hide elements to be printed you can simply add the class `no-print`.
 
 ### Force break page
 
-Gutenberg provides two ways to break a page, the class `break-before` will to break before and `break-after` to break after.
+Gutenberg provides two ways to break a page: the class `break-before` breaks before the element and `break-after` breaks after it.
 
 Example:
 
@@ -97,9 +83,10 @@ Example:
 </div>
 ```
 
-### Not reformat links or acronym
+### Not reformat links or abbreviations
 
-If you do not want to reformat the links, acronym or abbreviation to show the full url or title, you can use the class `no-reformat`.
+By default a printed `<a>` shows its URL and an `<abbr title>` shows its title in
+parentheses. Add the class `no-reformat` to suppress that on an element.
 
 ### Force to print background
 
@@ -112,6 +99,12 @@ To force backgrounds to be printed (can be useful when you "print" a pdf), add t
 
 ## Dev
 
- - `npm i` to install the dependencies
- - `npm run watch` to "watch" the scss folder and compile to css
- - `npm run build` to compile gutenberg to css
+Requires Node >= 20.19.
+
+ - `npm ci` — install dependencies
+ - `npm run build` — compile `scss/` to `dist/` (expanded + minified)
+ - `npm run watch` — recompile on change
+ - `npm run lint` — stylelint over `scss/`
+
+`dist/` is committed and kept in sync with `scss/`; CI fails if a build would
+change it. See [CLAUDE.md](CLAUDE.md) for the build pipeline and release flow.
