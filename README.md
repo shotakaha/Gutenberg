@@ -32,23 +32,33 @@ Example with Gutenberg and "old style" theme :
 
 > Comparison between standard print (left) and Gutenberg (middle, Modern style and right, Old style)
 
-## npm
+## Demo
 
-Gutenberg is available on npm
+A live demo of this fork is published from `docs/` at
+<https://shotakaha.github.io/Gutenberg/> — open it and use your browser's print
+preview to see the result.
 
-```
-npm install gutenberg-css
-```
+## CDN (this fork)
 
-(or `yarn add gutenberg-css` for yarn users)
-
-## CDN
-
-You can also use the unpkg service as a *CDN*.
+This fork is not published to npm. Reference the compiled CSS straight from a
+tagged release via [jsDelivr](https://www.jsdelivr.com/), pinning a version:
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/gutenberg-css@0.7" media="print">
-<link rel="stylesheet" href="https://unpkg.com/gutenberg-css@0.7/dist/themes/oldstyle.min.css" media="print">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.7.0/dist/gutenberg.min.css" media="print">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/shotakaha/Gutenberg@v0.7.0/dist/themes/oldstyle.min.css" media="print"> <!-- optional -->
+```
+
+Replace `v0.7.0` with the tag you want (see
+[releases](https://github.com/shotakaha/Gutenberg/releases)); `@latest` tracks
+the newest tag but is not recommended for production.
+
+## npm (upstream)
+
+The original project is on npm as `gutenberg-css` (last published by the
+upstream author at v0.7.0):
+
+```sh
+npm install gutenberg-css
 ```
 
 

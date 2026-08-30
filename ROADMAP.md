@@ -12,11 +12,13 @@ Released changes are recorded in [CHANGELOG.md](CHANGELOG.md).
 - Commit + release automation: commitlint + husky + lint-staged, and
   release-please for versioning / changelog / tags.
 - `fix`: `lighten()` -> `color.adjust()` (Dart Sass deprecation).
+- `docs/` published on GitHub Pages via Actions
+  (<https://shotakaha.github.io/Gutenberg/>); demos load the freshly built
+  `dist/` instead of the upstream npm package. Compiled CSS is also consumable
+  from tagged releases through jsDelivr.
 
 ## Next — small, low risk
 
-- [ ] **`docs/` on GitHub Pages.** Publish the existing demo HTML so the fork has
-      a visible, always-current demo (CI already keeps `dist/` in sync).
 - [ ] **`page-break-*` -> add standard `break-*`.** Keep the legacy properties,
       emit the standardised ones alongside them
       (`_pagination.scss`, `_utilities.scss`, `themes/book.scss`). Then re-enable
