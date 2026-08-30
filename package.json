@@ -3,7 +3,7 @@
   "version": "0.8.2",
   "description": "Print your web pages with style",
   "main": "scss/gutenberg.scss",
-  "browser": "dist/gutenberg.min.css",
+  "style": "dist/gutenberg.min.css",
   "scripts": {
     "build": "node scripts/build.mjs",
     "watch": "node scripts/build.mjs --watch",
@@ -17,8 +17,7 @@
   "keywords": [
     "framework",
     "css",
-    "print",
-    "eyeglass-module"
+    "print"
   ],
   "author": "Fabien Sa",
   "contributors": [
