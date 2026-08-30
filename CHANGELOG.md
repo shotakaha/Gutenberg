@@ -20,7 +20,7 @@ hand.
 
 ### Documentation
 
-* fix [@use](https://github.com/use) autolink in the 0.8.3 changelog ([925ada4](https://github.com/shotakaha/Gutenberg/commit/925ada46ad82d259a6f5a9c7bd2b7f8e809a8501))
+* fix `@use` autolink in the 0.8.3 changelog ([925ada4](https://github.com/shotakaha/Gutenberg/commit/925ada46ad82d259a6f5a9c7bd2b7f8e809a8501))
 * refresh CLAUDE.md after the housekeeping pass ([b004a61](https://github.com/shotakaha/Gutenberg/commit/b004a6150005544f5cecdbae4e82d72da319b105))
 
 ## [0.8.3](https://github.com/shotakaha/Gutenberg/compare/v0.8.2...v0.8.3) (2026-08-30)
