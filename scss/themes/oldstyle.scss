@@ -40,9 +40,7 @@ blockquote {
 	margin-left: $spacing;
 	padding-left: 1rem;
 
-	& {
-		p::first-letter {
-			font-weight: bold;
-		}
+	p::first-letter {
+		font-weight: bold;
 	}
 }
