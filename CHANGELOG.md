@@ -28,7 +28,7 @@ hand.
 ### Documentation
 
 * add a housekeeping checklist to ROADMAP ([f40010f](https://github.com/shotakaha/Gutenberg/commit/f40010f2a55e919a7d65152a8fa8d6eeafe98968))
-* fix bad @import/[@use](https://github.com/use) autolinks in the 0.8.2 changelog ([426ba90](https://github.com/shotakaha/Gutenberg/commit/426ba905e3e297c60c9e017f14fcae2cf5c71653))
+* fix bad `@import`/`@use` autolinks in the 0.8.2 changelog ([426ba90](https://github.com/shotakaha/Gutenberg/commit/426ba905e3e297c60c9e017f14fcae2cf5c71653))
 * mark the housekeeping checklist done in ROADMAP ([1194f75](https://github.com/shotakaha/Gutenberg/commit/1194f75775ac2bb7383c205098c6a6de0e032084))
 
 ## [0.8.2](https://github.com/shotakaha/Gutenberg/compare/v0.8.1...v0.8.2) (2026-08-30)
