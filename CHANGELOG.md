@@ -15,7 +15,7 @@ hand.
 
 ### Build System
 
-* replace gulp with the Dart Sass CLI; migrate [@import](https://github.com/import) to [@use](https://github.com/use) ([096d995](https://github.com/shotakaha/Gutenberg/commit/096d9954554243ad664f37c4d08899bf6c5f0db0))
+* replace gulp with the Dart Sass CLI; migrate `@import` to `@use` ([096d995](https://github.com/shotakaha/Gutenberg/commit/096d9954554243ad664f37c4d08899bf6c5f0db0))
 
 
 ### CI
