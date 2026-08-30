@@ -17,10 +17,32 @@ in this fork since that point.
 - Point `repository`, `bugs`, and `homepage` in `package.json` at the fork.
 - README: add a maintenance-fork notice; drop dead Travis CI and Code Climate
   badges that referenced upstream infrastructure that is no longer running.
+- Replace the abandoned `sass-lint` linter with `stylelint` +
+  `stylelint-config-standard-scss`. The config is tuned so the current sources
+  pass unchanged (see `.stylelintrc.js` for the disabled rules and why); it acts
+  as a regression net, not a mass rewrite.
+- `npm test` now runs `npm run lint` (was `sass-lint`).
+- Raise `engines.node` from `>=8.0` to `>=18`.
+- `package-lock.json` migrated from lockfile v1 to v3 (npm 7+ format) as a side
+  effect of installing stylelint.
 
 ### Added
 
 - This `CHANGELOG.md`.
+- GitHub Actions CI (`.github/workflows/ci.yml`): lint + build on Node 18/20/22,
+  and a check that `dist/` is in sync with `scss/`.
+- `npm run lint` script.
+
+### Removed
+
+- `.travis.yml`, `.sass-lint.yml`, `.codeclimate.yml` — all tied to services or
+  linters that are no longer used.
+
+### Known issues
+
+- `npm audit` reports vulnerabilities entirely within the `gulp` 4 devDependency
+  tree (build-time only, nothing ships in `dist/`). Clearing them requires
+  replacing or major-upgrading the build tool, deferred to its own change.
 
 ---
 
