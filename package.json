@@ -1,6 +1,6 @@
 {
   "name": "gutenberg-css",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "Print your web pages with style",
   "main": "scss/gutenberg.scss",
   "style": "dist/gutenberg.min.css",
