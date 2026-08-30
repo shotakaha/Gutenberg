@@ -19,10 +19,7 @@ a {
 	}
 }
 
-// Show abbreviation or acronym title
-abbr[title],
-acronym[title] {
-	&::after {
-		content: ' (' attr(title) ')';
-	}
+// Show the abbreviation's expansion
+abbr[title]::after {
+	content: ' (' attr(title) ')';
 }
